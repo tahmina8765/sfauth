@@ -71,14 +71,24 @@ swiftmailer:
 
 fos_user:
     db_driver: orm
-    firewall_name: main
+    firewall_name: secure_area
     user_class: Album\UserBundle\Entity\User
 
 hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
-    firewall_name: secured_area
+    firewall_name: secure_area
+    connect:
+        confirmation: true
+        #account_connector: hwi_oauth.user.provider.fosub_bridge
+        #registration_form_handler: hwi_oauth.registration.form.handler.fosub_bridge
+        #registration_form: fos_user.registration.form
     resource_owners:
         any_name:
             type:                twitter
-            client_id:           <consumer-key>
-            client_secret:       <consumer-secret>
+            client_id:           gucWCGyuYYWEPdAmoisFg
+            client_secret:       zxOcpaixMqMgPWyaIFaGP45cFQ14hyhOVsPYCxSleFg
+
+services:
+  hwi_oauth.user.provider.fosub_bridge:
+    class: Album\UserBundle\Security\User\Provider\OAuthUserProvider
+    arguments: [ @doctrine, @session, @service_container]

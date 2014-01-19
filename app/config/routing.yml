@@ -29,3 +29,15 @@ fos_user_change_password:
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
     prefix:   /connect
+
+facebook_login:
+    pattern: /login/check-facebook
+
+google_login:
+    pattern: /login/check-google
+
+twitter_login:
+    pattern: /login/check-twitter
+
+github_login:
+    pattern: /login/check-github

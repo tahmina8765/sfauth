@@ -1,0 +1,3 @@
+album_homepage:
+    pattern:  /album/{name}
+    defaults: { _controller: AlbumBundle:Default:index }
